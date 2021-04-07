@@ -1,11 +1,15 @@
-package com.udacity.project4.locationreminders.data
+package com.udacity.project4.locationreminders.data.local
 
+import com.udacity.project4.locationreminders.data.ReminderDataSource
 import com.udacity.project4.locationreminders.data.dto.ReminderDTO
 import com.udacity.project4.locationreminders.data.dto.Result
 
-class FakeDataSource(private var reminders : LinkedHashMap<String, ReminderDTO> = LinkedHashMap()) : ReminderDataSource {
+//Use FakeDataSource that acts as a test double to the LocalDataSource
+class FakeAndroidDataSource(var reminders : LinkedHashMap<String, ReminderDTO> = LinkedHashMap())
+    : ReminderDataSource {
+    //    TODO: Create a fake data source to act as a double to the real data source
     companion object {
-        const val ERROR_MESSAGE = "Something wrong with reminders"
+        val ERROR_MESSAGE = "Could not get reminders"
     }
 
     private var shouldReturnError = false
